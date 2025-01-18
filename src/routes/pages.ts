@@ -9,8 +9,4 @@ router.get("/", (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
-router.get("/about", (req: Request, res: Response) => {
-  res.sendFile(path.join(__dirname, "../public/about.html"));
-});
-
 export default router;

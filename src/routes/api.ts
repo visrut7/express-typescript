@@ -4,12 +4,10 @@ import express, { Router, Request, Response } from "express";
 const router: Router = express.Router();
 
 // GET /api/users
-router.get("/users", (req: Request, res: Response) => {
-  const users = [
-    { id: 1, name: "John" },
-    { id: 2, name: "Jane" },
-  ];
-  res.json(users);
+router.get("/cookie", (req: Request, res: Response) => {
+  console.log(req.cookies);
+
+  res.json({ message: "Cookie received" });
 });
 
 // POST /api/users

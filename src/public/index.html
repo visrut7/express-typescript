@@ -4,9 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Express TypeScript App</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>TS</title>
 </head>
 <body>
-    <h1>Welcome to Express TypeScript App</h1>
+    <main class="flex flex-col gap-y-5 min-h-screen justify-center items-center">
+        <section class="cookie-container"></section>
+
+        <section>
+            <button class="btn btn-primary" id="set-cookie">Set Cookie</button>
+            <button class="btn btn-primary" id="show-cookie">Show Cookie</button>
+            <button class="btn btn-primary" id="delete-cookie">Delete Cookie</button>
+        </section>
+       
+    </main>
+
+    <script>
+        const setCookieButton = document.getElementById('set-cookie');
+        
+        setCookieButton.addEventListener('click', async () => {
+            document.cookie = 'cookieName=cookieValue; Expires=Thu, 31 Oct 2026  07:28:00 GMT; SameSite=None; Secure';
+        });
+
+        const showCookieButton = document.getElementById('show-cookie');
+        const cookieContainer = document.querySelector('.cookie-container');
+
+        showCookieButton.addEventListener('click', async () => {
+            const cookie = document.cookie;
+            cookieContainer.innerHTML = cookie;
+        });
+
+        const deleteCookieButton = document.getElementById('delete-cookie');
+
+        deleteCookieButton.addEventListener('click', async () => {
+            document.cookie = 'cookieName=; Expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=None; Secure';
+        });
+    </script>
 </body>
 </html>
